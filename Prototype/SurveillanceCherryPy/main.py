@@ -65,6 +65,7 @@ def setup_database():
     """
     try:
         with sqlite3.connect(DB_STRING) as con:
+            cleanup_database()
             con.execute("CREATE TABLE sensorsData (Id INTEGER PRIMARY KEY AUTOINCREMENT, Type, SensorId, Value, AcquiredOn)")
     except:
         pass
